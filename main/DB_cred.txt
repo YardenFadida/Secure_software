@@ -1,0 +1,4 @@
+jdbcUrl=jdbc:mysql://localhost:3306/application
+username=root
+password="PASSWORD"
+salt=cs4417
