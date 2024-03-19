@@ -4,10 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -126,7 +122,8 @@ public class login_screen implements ActionListener {
 				if(userName.getText().length() > 3 && pass.getText().length() > 4) { 
 					int prev = utilities.loginCheck(userName.getText(), pass.getText());
 					if(prev == -1){ //error
-						alert.setText("Something wrong try again");
+						 alert.setText("Username or Password is incorrect");
+						 utilities.resetFields(login_page);
 					}
 					else if(prev != 1) { // user logged in
 				        	home_screen.main(frame);
@@ -135,8 +132,10 @@ public class login_screen implements ActionListener {
 						home_screen_admin.main(frame);
 				    }    	
 				}
-				else
-			        alert.setText("Something wrong with cred");
+				else {
+			        alert.setText("Username or Password is incorrect");
+			        utilities.resetFields(login_page);
+				}
 		}
 		else if(event.getSource() == register_btn) {
 			register_screen.main(frame);
@@ -144,8 +143,10 @@ public class login_screen implements ActionListener {
 		else if(event.getSource() == cngPass_btn) {
 			resetPass_screen.main(frame);
 		}
-		else
-			alert.setText("Something wrong");
+		else {
+			alert.setText("Something went wrong, try again");
+			utilities.resetFields(login_page);
+		}
 	}
 		
 	

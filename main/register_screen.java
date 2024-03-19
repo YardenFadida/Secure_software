@@ -1,18 +1,14 @@
-import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URLEncoder;
-import java.sql.Connection;
-import java.sql.SQLIntegrityConstraintViolationException;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -92,6 +88,7 @@ public class register_screen implements ActionListener{
 		panel.add(back_btn);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void checkRegister(String username, String pass) {
 			if(username.length() >= 5) {
 				if(pass.length() >= 8 && utilities.hasSpecialCharacter(pass)) {
@@ -99,11 +96,11 @@ public class register_screen implements ActionListener{
 						login_screen.main(f);
 					}
 					else {
-						alert.setText("Unvalid username or password, try again.");
+						alert.setText("Try different Username");
 					}
 				}
 				else {
-					alert.setText("Password must contain at least 8 characters and special characters.");
+					alert.setText("Password must contain at least 8 characters and one special character.");
 				}
 			}
 			else {

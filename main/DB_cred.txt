@@ -1,4 +1,4 @@
 jdbcUrl=jdbc:mysql://localhost:3306/application
-username=root
-password="PASSWORD"
-salt=cs4417
+username={DB Username}
+password={DB Password}
+salt={You can choose salt addition value for the hash function}

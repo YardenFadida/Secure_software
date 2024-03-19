@@ -1,4 +1,5 @@
 
+import java.awt.Component;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -13,8 +14,9 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.naming.CommunicationException;
 import javax.swing.DefaultListModel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 
@@ -28,12 +30,22 @@ public class utilities {
 		
 	}
 	
+	protected static void resetFields(JPanel p) {
+        Component[] components = p.getComponents();
+        for (Component component : components) {
+            if (component instanceof JTextField) {
+                ((JTextField) component).setText("");
+            }
+        }
+	  }
+		
+	
 
 	protected static boolean establishConnection() {
 		try {
 			String jdbcUrl = DataBaseConfig.getJdbcUrl();
 	        String username = DataBaseConfig.getUsername();
-	        String password = DataBaseConfig.getPassword();//in real software case the SQL cred will be provided ecnrypted by the server side 
+	        String password = DataBaseConfig.getPassword();//in real life software case the SQL cred will be exclusively stored on the server side.
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        
 	        con = DriverManager.getConnection(jdbcUrl, username, password);
@@ -42,7 +54,6 @@ public class utilities {
 	        
 		} 
 		catch (CommunicationsException e) {
-			//e.printStackTrace();
 			System.out.println("check the server operation");
 		}
 		catch (Exception e) {
@@ -52,7 +63,9 @@ public class utilities {
 		return false;
         
 	}
+	
 	//verify login info with database.
+	@SuppressWarnings("deprecation")
 	protected static int loginCheck(String username, String pass) { 
 			String sql = "SELECT password,privilege FROM users WHERE user_id = ?";
 			try {
@@ -77,13 +90,13 @@ public class utilities {
 					if (con != null && !con.isClosed())
 						con.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 			return -1;
 	}
 	
+	@SuppressWarnings("deprecation")
 	protected static boolean addReview(String name, String r) {
 		String sql = "INSERT INTO reviews (name, review) VALUES (?,?)";
 		try {
@@ -95,8 +108,6 @@ public class utilities {
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 return true;
-            } else {
-                return false;
             }
 		}
 		else
@@ -112,7 +123,6 @@ public class utilities {
 				if (con != null && !con.isClosed())
 					con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -120,16 +130,18 @@ public class utilities {
 	}
 		
 	
+	@SuppressWarnings("deprecation")
 	protected static void fetchReviewsFromDatabase(DefaultListModel<String> list) {
 		String sql = "SELECT review FROM reviews";
 		try {
 			if(establishConnection()) {
 				PreparedStatement preparedStatement = con.prepareStatement(sql);
 				ResultSet rs = preparedStatement.executeQuery();
+				int i=1;
 				while (rs.next()) {
-                    
-                    String reviewText = rs.getString("review");
+                    String reviewText = i+": "+ rs.getString("review");
                     list.addElement(URLDecoder.decode(reviewText));
+                    i++;
                 }
 			}
 				
@@ -143,7 +155,6 @@ public class utilities {
 					if (con != null && !con.isClosed())
 						con.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -203,7 +214,7 @@ public class utilities {
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {
                     return true;
-                } 
+                }
     		}
     	}
         catch (SQLIntegrityConstraintViolationException e) {
@@ -242,6 +253,6 @@ public class utilities {
 	        Matcher matcher = pattern.matcher(password);
 	        return matcher.find();
 	    }
-		
+	 
 
 }

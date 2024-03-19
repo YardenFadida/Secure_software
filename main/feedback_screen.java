@@ -1,9 +1,7 @@
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -52,7 +50,7 @@ public class feedback_screen implements ActionListener{
 		
 		
 		
-		JLabel titlePass = new JLabel("Tell us what you think");
+		JLabel titlePass = new JLabel("Tell us what do you think");
 		titlePass.setBounds(165,80,300,30);
 		review = new TextField(null);
 		review.setBounds(160,120,300,100);
@@ -91,16 +89,26 @@ public class feedback_screen implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == sent_btn) {
-			if(name.getText().length() > 0 && review.getText().length() > 0 ) {
-				if(utilities.addReview(name.getText(), review.getText())) {
-					home_screen.main(f);
+			if(name.getText().length() > 0) {
+				if (review.getText().length() > 0 ){
+					if(name.getText().length() < 49 && review.getText().length() < Integer.MAX_VALUE ) {	
+						if(utilities.addReview(name.getText(), review.getText())) {
+							home_screen.main(f);
+						}
+						else {
+							alert.setText("Something went wrong, try again");
+						}
+					}
+					else {
+						alert.setText("Name or The review is too long!");
+					}
 				}
 				else {
-					alert.setText("Something went wrong, try again");
+					alert.setText("Please insert your review");	
 				}
 			}
 			else {
-				alert.setText("Please add your review");
+				alert.setText("Please insert your name");
 			}
 		}
 		else if(e.getSource() == back_btn) {	

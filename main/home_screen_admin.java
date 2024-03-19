@@ -28,7 +28,7 @@ public class home_screen_admin implements ActionListener {
 
 
 	public home_screen_admin() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public static void main(JFrame frame) {
@@ -106,7 +106,7 @@ public class home_screen_admin implements ActionListener {
 				JOptionPane.showMessageDialog(f, userName.getText() +" is an Admin now", "Result", JOptionPane.WARNING_MESSAGE);
 			}
 			else {
-				JOptionPane.showMessageDialog(f, "Something went wrong, try again", "Result", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(f, "The user does not exist, try again", "Result", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		

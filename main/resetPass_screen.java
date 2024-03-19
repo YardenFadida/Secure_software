@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
@@ -30,6 +31,7 @@ public class resetPass_screen implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		placeComponentsLogin(reset_page);
 		frame.setVisible(true);   
+		JOptionPane.showMessageDialog(f, "This future is for functionality purpose only. (no security)", "Warning", JOptionPane.WARNING_MESSAGE);
 		
 	}
 	
@@ -60,9 +62,9 @@ public class resetPass_screen implements ActionListener{
 		confirm = new JPasswordField(null);
 		confirm.setBounds(160,140,300,30);
 
-		reset_btn = new JButton("Reset");
+		reset_btn = new JButton("Reset Password");
 		reset_btn.addActionListener(actionTrigger);
-		reset_btn.setBounds(240,200,110,30);
+		reset_btn.setBounds(240,200,110,50);
 		
 		back_btn= new JButton("Back");
 		back_btn.addActionListener(actionTrigger);
@@ -95,6 +97,7 @@ public class resetPass_screen implements ActionListener{
 		panel.add(back_btn);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void checkReset(String username, String pass, String confirmPass) {
 		if(!username.isEmpty() && !pass.isEmpty()) {
 			if(pass.length() >= 8 && utilities.hasSpecialCharacter(pass)) {
@@ -103,7 +106,8 @@ public class resetPass_screen implements ActionListener{
 							login_screen.main(f);
 						}
 						else {
-							alert.setText("Something went wrong.");
+							alert.setText("Something went wrong. The username does not exits");
+							utilities.resetFields(reset_page);
 						}
 				}
 				else {
@@ -111,11 +115,11 @@ public class resetPass_screen implements ActionListener{
 				}
 			}
 			else {
-				alert.setText("Password must contain at least 8 characters and special characters.");
+				alert.setText("Password must contain at least 8 characters and one special character.");
 			}
 		}
 		else {
-			alert.setText("Something is wrong.");
+			alert.setText("Please fill valid username and password");
 		}
 		
 	}

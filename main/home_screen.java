@@ -24,7 +24,7 @@ public class home_screen implements ActionListener {
 
 
 	public home_screen() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public static void main(JFrame frame) {
