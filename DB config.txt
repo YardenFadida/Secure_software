@@ -1,0 +1,14 @@
+DB tabels
+
+CREATE TABLE `reviews` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `review` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+)
+CREATE TABLE `users` (
+  `user_id` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `privilege` int NOT NULL,
+  PRIMARY KEY (`user_id`)
+)
