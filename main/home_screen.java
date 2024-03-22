@@ -12,13 +12,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class home_screen implements ActionListener {
-	static JFrame f;
-	static JPanel home_screen;
-	static JTextArea title,reviewTitle;
-	static JButton review_btn, logout_btn;
-	static JList<String> reviewList;
-	static DefaultListModel<String> listModel;
-	static JScrollPane scrollPane;
+	protected static JFrame f;
+	protected static JPanel home_screen;
+	protected static JTextArea title,reviewTitle;
+	protected static JButton review_btn, logout_btn;
+	protected static JList<String> reviewList;
+	protected static DefaultListModel<String> listModel;
+	protected static JScrollPane scrollPane;
 
 
 

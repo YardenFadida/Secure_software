@@ -13,13 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
 public class feedback_screen implements ActionListener{
-	static JFrame f;
-	static JPanel feedbackPage;
-	static JTextArea title, alert,review;
-	//static TextField review;
-	static JTextField name;
-	static JButton sent_btn,back_btn;
-	static JScrollPane scrollPane;
+	protected static JFrame f;
+	protected static JPanel feedbackPage;
+	protected static JTextArea title, alert,review;
+	protected static JTextField name;
+	protected static JButton sent_btn,back_btn;
+	protected static JScrollPane scrollPane;
 
 
 	public feedback_screen() {

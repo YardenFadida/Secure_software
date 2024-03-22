@@ -15,14 +15,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class home_screen_admin implements ActionListener {
-	static JFrame f;
-	static JPanel home_screen_admin;
-	static JTextArea title,reviewTitle,usernameTitle;
-	static JTextField userName;
-	static JButton logout_btn,set_btn;
-	static JList<String> reviewList;
-	static DefaultListModel<String> listModel;
-	static JScrollPane scrollPane;
+	protected static JFrame f;
+	protected static JPanel home_screen_admin;
+	protected static JTextArea title,reviewTitle,usernameTitle;
+	protected static JTextField userName;
+	protected static JButton logout_btn,set_btn;
+	protected static JList<String> reviewList;
+	protected static DefaultListModel<String> listModel;
+	protected static JScrollPane scrollPane;
 
 
 

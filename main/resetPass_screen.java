@@ -13,12 +13,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class resetPass_screen implements ActionListener{
-	static JFrame f;
-	static JPanel reset_page;
-	static JTextArea title, alert;
-	static JTextField userName;
-	static JPasswordField pass, confirm;
-	static JButton reset_btn, back_btn;
+	protected static JFrame f;
+	protected static JPanel reset_page;
+	protected static JTextArea title, alert;
+	protected static JTextField userName;
+	protected static JPasswordField pass, confirm;
+	protected static JButton reset_btn, back_btn;
 
 	
 	public resetPass_screen() {

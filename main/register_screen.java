@@ -13,12 +13,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class register_screen implements ActionListener{
-	static JFrame f;
-	static JPanel register_page;
-	static JTextArea title, alert;
-	static JTextField userName;
-	static JPasswordField pass;
-	static JButton signup_btn, back_btn;
+	protected static JFrame f;
+	protected static JPanel register_page;
+	protected static JTextArea title, alert;
+	protected static JTextField userName;
+	protected static JPasswordField pass;
+	protected static JButton signup_btn, back_btn;
 
 	
 	public register_screen() {
@@ -97,6 +97,7 @@ public class register_screen implements ActionListener{
 					}
 					else {
 						alert.setText("Try different Username");
+						utilities.resetFields(register_page);
 					}
 				}
 				else {

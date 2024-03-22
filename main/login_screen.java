@@ -2,7 +2,6 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.sql.Connection;
 
 import javax.swing.JButton;
@@ -19,13 +18,16 @@ import javax.swing.JTextField;
 
 
 public class login_screen implements ActionListener {
-	static JFrame frame;
-	static JPanel login_page;
-	static JTextArea title, alert;
-	static JTextField userName;
-	static JPasswordField pass;
-	static JButton login_btn,register_btn,cngPass_btn;
-	static Connection con;
+	protected static JFrame frame;
+	protected static JPanel login_page;
+	protected static JTextArea alert;
+	protected static JTextField userName;
+	protected static JPasswordField pass;
+	protected static JButton login_btn,register_btn,cngPass_btn;
+	protected static JLabel title;
+	protected static Connection con;
+
+	
 
 	public login_screen() {
 		// TODO Auto-generated constructor stub
@@ -57,12 +59,11 @@ public class login_screen implements ActionListener {
 	private static void placeComponentsLogin(JPanel panel){
 		login_screen actionTrigger= new login_screen(); // to define buttons action.
 		panel.setLayout(null);
-		
-		title = new JTextArea("Login Page ");
+	
+		title = new JLabel("Login page");
 		title.setBounds(240,0,110,30);
 		Font labelFont = title.getFont();
-        title.setEditable(false);
-        title.setOpaque(false);
+		title.setOpaque(false);
 		title.setFont(new Font(labelFont.getName(), Font.PLAIN, 20));
 		
 		JLabel titleUser = new JLabel("Username");
@@ -100,6 +101,7 @@ public class login_screen implements ActionListener {
 		
 		
 		panel.add(title);
+
 		
 		panel.add(titleUser);
 		panel.add(userName);
