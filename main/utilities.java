@@ -30,6 +30,7 @@ public class utilities {
 		
 	}
 	
+	
 	protected static void resetFields(JPanel p) {
         Component[] components = p.getComponents();
         for (Component component : components) {

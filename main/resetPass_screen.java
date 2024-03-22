@@ -31,7 +31,7 @@ public class resetPass_screen implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		placeComponentsLogin(reset_page);
 		frame.setVisible(true);   
-		JOptionPane.showMessageDialog(f, "This future is for functionality purpose only. (no security)", "Warning", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(f, "This feature is for functionality purpose only. (no security)", "Warning", JOptionPane.WARNING_MESSAGE);
 		
 	}
 	
@@ -72,7 +72,7 @@ public class resetPass_screen implements ActionListener{
 		
 		
 
-		alert = new JTextArea("This future is for functionality purpose only. (no security)");
+		alert = new JTextArea("This feature is for functionality purpose only. (no security)");
 		alert.setBounds(50,250,500,30);
 		Font labelFont2 = alert.getFont();
 		alert.setEditable(false);

@@ -67,7 +67,7 @@ public class register_screen implements ActionListener{
 		
 
 		alert = new JTextArea("");
-		alert.setBounds(50,200,500,30);
+		alert.setBounds(50,200,600,30);
 		Font labelFont2 = alert.getFont();
 		alert.setEditable(false);
 		alert.setOpaque(false);

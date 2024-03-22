@@ -1,5 +1,5 @@
+import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,16 +7,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 public class feedback_screen implements ActionListener{
 	static JFrame f;
 	static JPanel feedbackPage;
-	static JTextArea title, alert;
-	static TextField review;
+	static JTextArea title, alert,review;
+	//static TextField review;
 	static JTextField name;
 	static JButton sent_btn,back_btn;
+	static JScrollPane scrollPane;
 
 
 	public feedback_screen() {
@@ -28,6 +31,10 @@ public class feedback_screen implements ActionListener{
 		feedbackPage = new JPanel();
 		frame.setContentPane(feedbackPage);
 		placeComponentsLogin(feedbackPage);
+		scrollPane = new JScrollPane(review);
+	    scrollPane.setBounds(160,120,300,100);
+	    scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	    frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		frame.setVisible(true);
 		sent_btn.requestFocusInWindow();
 	}
@@ -51,9 +58,12 @@ public class feedback_screen implements ActionListener{
 		
 		
 		JLabel titlePass = new JLabel("Tell us what do you think");
+		
 		titlePass.setBounds(165,80,300,30);
-		review = new TextField(null);
-		review.setBounds(160,120,300,100);
+		review = new JTextArea();
+		review.setLineWrap(true);
+		review.setWrapStyleWord(true);
+
 		
 		
 		sent_btn = new JButton("Send");
@@ -80,7 +90,7 @@ public class feedback_screen implements ActionListener{
 		panel.add(name);
 		
 		panel.add(titlePass);
-		panel.add(review);
+
 		
 		panel.add(sent_btn);
 		panel.add(back_btn);
