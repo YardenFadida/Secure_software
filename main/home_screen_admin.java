@@ -11,13 +11,12 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class home_screen_admin implements ActionListener {
 	protected static JFrame f;
 	protected static JPanel home_screen_admin;
-	protected static JTextArea title,reviewTitle,usernameTitle;
+	protected static JLabel title,reviewTitle,usernameTitle;
 	protected static JTextField userName;
 	protected static JButton logout_btn,set_btn;
 	protected static JList<String> reviewList;
@@ -47,26 +46,29 @@ public class home_screen_admin implements ActionListener {
 		home_screen_admin actionTrigger= new home_screen_admin(); 
 		panel.setLayout(null);
 		
-		title = new JTextArea("Home page-Admin");
-		title.setBounds(180,0,250,30);
+		title = new JLabel();
+		if(utilities.name != null) {
+			title.setText("Admin Home page, welcome back "+utilities.name);
+		}
+		else {
+			title.setText("Admin Home page");
+		}
+		title.setBounds(20,0,500,30);
 		Font labelFont = title.getFont();
-        title.setEditable(false);
         title.setOpaque(false);
-		title.setFont(new Font(labelFont.getName(), Font.PLAIN, 20));
+		title.setFont(new Font(labelFont.getName(), Font.BOLD, 15));	
 		
 		logout_btn = new JButton("Log out");
 		logout_btn.addActionListener(actionTrigger);
 		logout_btn.setBounds(240,330,110,30);
 		
-		reviewTitle = new JTextArea("Our reviews");
+		reviewTitle = new JLabel("Our reviews");
 		reviewTitle.setBounds(240,35,250,30);
-        reviewTitle.setEditable(false);
         reviewTitle.setOpaque(false);
 		reviewTitle.setFont(new Font(labelFont.getName(), Font.PLAIN, 15));
 		
-		usernameTitle = new JTextArea("Set registered User- Admin privileges");
+		usernameTitle = new JLabel("Set registered User- Admin privileges");
 		usernameTitle.setBounds(140,210,300,30);
-		usernameTitle.setEditable(false);
 		usernameTitle.setOpaque(false);
 		usernameTitle.setFont(new Font(labelFont.getName(), Font.PLAIN, 15));
 		

@@ -6,15 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class home_screen implements ActionListener {
 	protected static JFrame f;
 	protected static JPanel home_screen;
-	protected static JTextArea title,reviewTitle;
+	protected static JLabel title,reviewTitle;
 	protected static JButton review_btn, logout_btn;
 	protected static JList<String> reviewList;
 	protected static DefaultListModel<String> listModel;
@@ -43,12 +43,17 @@ public class home_screen implements ActionListener {
 		home_screen actionTrigger= new home_screen(); // to define buttons action.
 		panel.setLayout(null);
 		
-		title = new JTextArea("Home page");
-		title.setBounds(230,0,250,30);
+		title = new JLabel();
+		if(utilities.name != null) {
+			title.setText("Home page, welcome back "+utilities.name);
+		}
+		else {
+			title.setText("Home page");
+		}
+		title.setBounds(20,0,500,30);
 		Font labelFont = title.getFont();
-        title.setEditable(false);
         title.setOpaque(false);
-		title.setFont(new Font(labelFont.getName(), Font.PLAIN, 20));
+		title.setFont(new Font(labelFont.getName(), Font.BOLD, 17));	
 		
 
 		review_btn = new JButton("Add review");
@@ -60,9 +65,8 @@ public class home_screen implements ActionListener {
 		logout_btn.addActionListener(actionTrigger);
 		logout_btn.setBounds(240,330,110,30);
 		
-		reviewTitle = new JTextArea("Our reviews");
+		reviewTitle = new JLabel("Our reviews");
 		reviewTitle.setBounds(240,35,250,30);
-        reviewTitle.setEditable(false);
         reviewTitle.setOpaque(false);
 		reviewTitle.setFont(new Font(labelFont.getName(), Font.PLAIN, 15));
 

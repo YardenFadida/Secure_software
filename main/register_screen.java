@@ -90,7 +90,7 @@ public class register_screen implements ActionListener{
 	
 	@SuppressWarnings("deprecation")
 	private void checkRegister(String username, String pass) {
-			if(username.length() >= 5) {
+			if(username.length() >= 5 && username.length() <= 25) {
 				if(pass.length() >= 8 && utilities.hasSpecialCharacter(pass)) {
 					if (utilities.registerClient(URLEncoder.encode(username), URLEncoder.encode(pass)) == true) {
 						login_screen.main(f);
@@ -105,7 +105,7 @@ public class register_screen implements ActionListener{
 				}
 			}
 			else {
-				alert.setText("Username must contain at least 5 characters.");
+				alert.setText("Username must contain at least 5-25 characters.");
 			}	
 		
 	}

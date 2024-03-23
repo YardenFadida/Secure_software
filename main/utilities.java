@@ -25,6 +25,7 @@ import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 
 public class utilities {
 	private static Connection con;
+	protected static String name=null;
 
 	public utilities() {
 		
@@ -78,6 +79,7 @@ public class utilities {
 					String password = utilities.calculateSHA256(DataBaseConfig.getSalt()+URLEncoder.encode(pass)); 
 					if(rs.next() && rs.getString("password").equals(password)) {
 						int prev = rs.getInt("privilege");
+						name = username;
 						return prev;
 					}
 				}
