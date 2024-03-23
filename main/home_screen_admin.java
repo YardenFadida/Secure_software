@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URLDecoder;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -42,13 +43,14 @@ public class home_screen_admin implements ActionListener {
 
 	}
 	
+	@SuppressWarnings("deprecation")
 	private static void placeComponentsLogin(JPanel panel){
 		home_screen_admin actionTrigger= new home_screen_admin(); 
 		panel.setLayout(null);
 		
 		title = new JLabel();
 		if(utilities.name != null) {
-			title.setText("Admin Home page, welcome back "+utilities.name);
+			title.setText("Admin Home page, welcome back "+URLDecoder.decode(utilities.name));
 		}
 		else {
 			title.setText("Admin Home page");

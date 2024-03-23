@@ -79,7 +79,7 @@ public class utilities {
 					String password = utilities.calculateSHA256(DataBaseConfig.getSalt()+URLEncoder.encode(pass)); 
 					if(rs.next() && rs.getString("password").equals(password)) {
 						int prev = rs.getInt("privilege");
-						name = username;
+						name = URLEncoder.encode(username);
 						return prev;
 					}
 				}
