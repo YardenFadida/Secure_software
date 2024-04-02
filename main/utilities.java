@@ -105,9 +105,9 @@ public class utilities {
 		try {
 		if(establishConnection()) {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
-			// Set values
             preparedStatement.setString(1, URLEncoder.encode(name));
             preparedStatement.setString(2, URLEncoder.encode(r));
+
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 return true;
@@ -131,6 +131,8 @@ public class utilities {
 		}
 		return false;
 	}
+	
+
 		
 	
 	@SuppressWarnings("deprecation")

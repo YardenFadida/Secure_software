@@ -74,7 +74,7 @@ public class feedback_screen implements ActionListener{
 		back_btn.setBounds(30,300,110,30);
 		
 		alert = new JTextArea("");
-		alert.setBounds(160,200,300,30);
+		alert.setBounds(160,230,300,30);
 		Font labelFont2 = alert.getFont();
 		alert.setEditable(false);
 		alert.setOpaque(false);
