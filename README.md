@@ -4,7 +4,7 @@ The purpose of this project is to demonstrate security mechanisms and prevent co
 
 Many security aspects are not considered here since the scope of this project is local and does not involve network communication (server side, etc...).
 
-In order to run this project, make sure to adjust the DB_cred.txt file properly.
+In order to run this project, make sure to adjust the DB_cred.txt file properly and import the required external libs.
 
 This project was built as a final project for a university course.(small scope).
 
